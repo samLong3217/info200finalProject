@@ -10,8 +10,13 @@ page_two <- tabPanel( #Cameron's Question goes here
       p("Select the year range you would like to look at.")
     ),
     mainPanel(
-      plotOutput(outputId = "womenBar")
-      
+      plotOutput(outputId = "womenBar"),
+      br(),
+      plotOutput(outputId = "womenDotPlot"),
+      br(),
+      textOutput(outputId = "womenBlurb1"),
+      br(),
+      textOutput(outputId = "womenBlurb2")
       
     )
   )
