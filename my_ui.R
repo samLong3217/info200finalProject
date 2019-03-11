@@ -1,4 +1,5 @@
 library("shiny")
+source("csv.R")
 
 page_one <- tabPanel(
   "Introduction",
@@ -20,7 +21,10 @@ page_three <- tabPanel( #Marks's Question goes here
 
 page_four <- tabPanel( #Rory's Question goes here
   "4",
-  titlePanel("Income Inequality"),
+  titlePanel("Do you need to be wealthy to become an astronaut"),
+  
+  textInput(inputId = "expense", label = "Living expense you can afford"),
+  
   p("bla")
 )
 
