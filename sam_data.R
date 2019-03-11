@@ -1,4 +1,5 @@
 source("csv.R")
+
 page_five <- tabPanel(
   "Highly Selective Schools",
    sidebarLayout(
@@ -14,9 +15,8 @@ page_five <- tabPanel(
       )
     ),
     mainPanel(
-      plotOutput(outputId = "plot"),
-      p(a("Link", href = "http://gabriel-zucman.eu/usdina/"))
-      
-      )
+      plotOutput(outputId = "piePlot")
+
+   )
    )
 )
