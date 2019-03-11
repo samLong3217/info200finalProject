@@ -20,8 +20,9 @@ get_sex_number_between <- function(start, end) {
   males <- filter(relevant, Gender == "Male")
   females <- filter(relevant, Gender == "Female")
   
-  output <- list(length(males$Year), length(females$Year))
-  names(output) <- c("num_males_recruited", "num_females_recruited")
+  gender <- c("Males", "Females")
+  num <- c(length(males$Year), length(females$Year))
+  output <- data.frame(gender, num)
   output
 }
 
