@@ -9,7 +9,7 @@ page_one <- tabPanel(
 
 page_two <- tabPanel( #Cameron's Question goes here
   "2",
-  titlePanel("Income Inequality"),
+  titlePanel("Income EQUALITY"),
   p("bla")
 )
 
