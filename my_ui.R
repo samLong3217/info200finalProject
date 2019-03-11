@@ -1,5 +1,6 @@
 library("shiny")
 source("sam_data.R")
+source("cam_data.R")
 
 page_one <- tabPanel(
   "Introduction",
@@ -7,11 +8,6 @@ page_one <- tabPanel(
   p("bla")
   )
 
-page_two <- tabPanel( #Cameron's Question goes here
-  "2",
-  titlePanel("Income Inequality"),
-  p("bla")
-)
 
 page_three <- tabPanel( #Marks's Question goes here
   "3",
