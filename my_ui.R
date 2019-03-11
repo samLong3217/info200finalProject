@@ -1,4 +1,5 @@
 library("shiny")
+source("sam_data.R")
 
 page_one <- tabPanel(
   "Introduction",
@@ -24,11 +25,7 @@ page_four <- tabPanel( #Rory's Question goes here
   p("bla")
 )
 
-page_five <- tabPanel( #Sam's Question goes here
-  "5",
-  titlePanel("Income Inequality"),
-  p("bla")
-)
+
 
 my_ui <- navbarPage(
   "Astro Data",
