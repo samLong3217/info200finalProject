@@ -18,10 +18,10 @@ my_server <- function(input, output) {
     }
     # selected at least one of the tests
     if (input$act | input$sat_math | input$sat_read) {
-      plot <- avg_test_scores_by_interval_graph(100, tests)
+      plot <- avg_test_scores_by_interval_graph(input$divisions, tests)
     # none of the tests are selected, so this is default
     } else {
-      plot <- avg_test_scores_by_interval_graph(100, c(
+      plot <- avg_test_scores_by_interval_graph(input$divisions, c(
         "ACT.Composite.75th.percentile.score",
         "SAT.Math.75th.percentile.score",
         "SAT.Critical.Reading.75th.percentile.score"

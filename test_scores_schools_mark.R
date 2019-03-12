@@ -6,8 +6,7 @@
 library("tidyr")
 library("dplyr")
 library("ggplot2")
-
-college <- read.csv("./college_data.csv", stringsAsFactors = FALSE)
+source("csv.R")
 
 # This function returns a data table containing all the colleges with their scores (SAT/ACT) and admission rates
 # given they are within the admission_rate_low and admission_rate_high boundaries. Chose 75th percentile, since
@@ -54,6 +53,11 @@ avg_test_scores_by_interval <- function(divisions) {
     lo = lo + interval
     hi = hi + interval
   }
+  bins <- filter(bins,
+                 !is.na(bins$Percent.admitted...total),
+                 !is.na(SAT.Critical.Reading.75th.percentile.score),
+                 !is.na(SAT.Math.75th.percentile.score),
+                 !is.na(ACT.Composite.75th.percentile.score))
   colnames(bins) = c(
     "Percent.admitted...total",
     "SAT.Critical.Reading.75th.percentile.score",
@@ -66,7 +70,7 @@ avg_test_scores_by_interval <- function(divisions) {
 # Basically the line graph version of avg_test_scores_by_interval; takes in tests as well,
 # which is expected to be a vector of strings of test types
 avg_test_scores_by_interval_graph <- function(divisions, tests) {
-  data <- avg_test_scores_by_interval(10)
+  data <- avg_test_scores_by_interval(divisions)
   # gather data so we can group the lines
   data <- data %>%
     gather(
@@ -75,7 +79,7 @@ avg_test_scores_by_interval_graph <- function(divisions, tests) {
       -Percent.admitted...total
     ) %>%
     filter(test_type == tests)
-  plot <- ggplot(data = new_data, aes(
+  plot <- ggplot(data = data, aes(
       x = Percent.admitted...total,
       y = score,
       group = test_type
@@ -91,4 +95,7 @@ avg_test_scores_by_interval_graph <- function(divisions, tests) {
       x = "Admission Rate (%)",
       y = "Test Score"
     )
+  plot
 }
+
+View(avg_test_scores_by_interval(100))

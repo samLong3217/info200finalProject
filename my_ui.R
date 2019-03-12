@@ -14,7 +14,7 @@ page_two <- tabPanel( #Cameron's Question goes here
 )
 
 page_three <- tabPanel( # Marks's Question goes here
-  "3",
+  "Selective School Test Scores",
   titlePanel("Are highly selective schools also schools with high test scores?"),
   sidebarLayout(
     sidebarPanel(
@@ -22,7 +22,7 @@ page_three <- tabPanel( # Marks's Question goes here
       checkboxInput(inputId = "act", "ACT Composite", FALSE),
       checkboxInput(inputId = "sat_math", "SAT Math", FALSE),
       checkboxInput(inputId = "sat_read", "SAT Reading", FALSE),
-      sliderInput(inputId = "divisions", "How Many Plots Per Test?", min = 0, max = 100, value = 10)
+      sliderInput(inputId = "divisions", "How Many Plots Per Test?", min = 6, max = 100, value = 10)
     ),
     mainPanel(
       plotOutput(outputId = "line_graph")
