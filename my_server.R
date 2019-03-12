@@ -1,6 +1,8 @@
 
+
 library("ggplot2")
 source("cam-analysis.R")
+source("astro_schools_sam.R")
 
 my_server <- function(input,output) {
   # Function that used to create the table that includes the data of astronaut who spent their 
@@ -136,6 +138,8 @@ my_server <- function(input,output) {
                   "and just how important is that? ",
                   "It is some of these questions that we seek to answer in other sections of the application.")
   })
+  
+  output$piePlot <- renderPlot({getPieChart(input$percent_selective, input$school_type)})
 
 }
 
