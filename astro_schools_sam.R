@@ -16,11 +16,12 @@ getPieChart <- function(cutoff, school_type) {
   #data <- c(selective_ratio, 72 - selective_ratio, 28)
   data <- c(selective_set, unselective_set, length(military_astro$Name), length(errors$Name))
   pie_frame <- data.frame(group, data, stringsAsFactors = FALSE)
-  pie_frame <- filter(pie_frame, group %in% school_type)
   #View(pie_frame)
+  pie_frame <- filter(pie_frame, group %in% school_type)
+  #print(pie_frame)
   total <- sum(pie_frame[, "data"])
   pie_frame[, "data"] <- pie_frame[, "data"] / total * 100
-  
+  #View(pie_frame)
   pie <- ggplot(data = pie_frame) +
     geom_col(mapping = aes(x = "", y = data, fill = group), width = 1) +
     coord_polar("y", start = 0) +
@@ -40,4 +41,4 @@ getPieChart <- function(cutoff, school_type) {
   pie
 }
 
-#getPieChart(60, c("Selective Schools", "Non-Selective Schools", "Military Academies", "No Schooling")) 
+getPieChart(60, c("Selective Schools", "Un-Selective Schools", "Military Schools")) 
