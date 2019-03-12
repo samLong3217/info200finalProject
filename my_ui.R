@@ -15,8 +15,17 @@ page_two <- tabPanel( #Cameron's Question goes here
 
 page_three <- tabPanel( #Marks's Question goes here
   "3",
-  titlePanel("Income Inequality"),
-  p("bla")
+  titlePanel("Are highly selective schools also schools with high test scores?"),
+  sidebarLayout(
+    sidebarPanel(
+      checkboxInput(inputId = "act", "ACT Composite", FALSE),
+      checkboxInput(inputId = "sat_math", "SAT Math", FALSE),
+      checkboxInput(inputId = "sat_read", "SAT Reading", FALSE)
+    ),
+    mainPanel(
+      plotOutput(outputId = "line_graph")
+    )
+  )
 )
 
 page_four <- tabPanel( #Rory's Question goes here

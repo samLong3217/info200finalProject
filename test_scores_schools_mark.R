@@ -92,7 +92,3 @@ avg_test_scores_by_interval_graph <- function(divisions, tests) {
       y = "Test Score"
     )
 }
-  
-# View(avg_test_scores_by_interval_graph(50))
-
-# View (test_scores_of_schools(0, 20))
