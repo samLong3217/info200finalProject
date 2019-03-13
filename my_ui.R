@@ -54,7 +54,7 @@ page_three <- tabPanel( # Marks's Question goes here
 )
 
 page_four <- tabPanel( #Rory's Question goes here
-  "Is expensive to be an astronaut?",
+  "Astronaut College Expenses",
   titlePanel("Do you need to be wealthy to become an astronaut"),
   sidebarPanel(
     p("Every child might have an astronaut dream for their future. However, becoming an astronaut is not an easy
@@ -74,7 +74,24 @@ page_four <- tabPanel( #Rory's Question goes here
              )
 
 )
-
+page_six <- tabPanel(
+  "Conclusion",
+  titlePanel("Conclusion"),
+  p("Through these analyses, the role of college with relation to astronauts has become more clear.
+    We've seen an upward trend in the hiring of female astronauts. While this trened increases, as
+    we strive for more gender equality in the US, it is still not perfect. We have a ways to go."),
+  p("Another Analysis we have shown is that as test scores decrease, admission rates increase. 
+    This is understandable, as competitive schools would have to make more dificult decisions, choosing
+    only the best of the best of students for their programs."),
+  p("We also discovered the astonauts go to schools that, on average, are more expensive than other 
+    schools. This could be for many factors. For one, these schools may have solid STEM programs,
+    or NASA may hire directly from some of these more expensive schools."),
+  p("The final concept we learned was the breakdown of schooling for astronauts. Around 42.6% of
+    astonauts went to competitive schools, the most out of all categories. This result may be explained
+    in much of the same way as the prior question, with these competitive schools having better
+    (or considered) programs for the fields that astronauts would be interested in.")
+  
+)
 
 
 my_ui <- navbarPage(
@@ -83,5 +100,6 @@ my_ui <- navbarPage(
   page_two,
   page_three,
   page_four,
-  page_five
+  page_five,
+  page_six
 )

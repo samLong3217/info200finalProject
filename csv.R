@@ -86,7 +86,7 @@ unique_attended_colleges <- filter(college, Name %in% astro_college_data$Alma.Ma
 # you use this:
 no_astronaut_colleges <- filter(college, !(Name %in% astro_college_data$Alma.Mater))
 
-errors <- filter(astro_college_data, is.na(Applicants.total))
-
+#errors <- filter(astro_college_data, is.na(Applicants.total))
+errors <- filter(astro_college_data, Alma.Mater == "")
 astro_college_data <- filter(astro_college_data, !is.na(Applicants.total))
 
