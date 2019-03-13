@@ -18,11 +18,18 @@ page_one <- tabPanel(
        is available, if many successful astronauts trend to come from particular schools, etc. In doing so, we 
        hope to expose certain biases that often go unnoticed in society, to help ensure a more equitable future 
        for us all."),
-  p("The question we will be looking at:"),
-  p(strong("• Did astronauts go to highly selective schools in the US, or not highly selective?")),
-  p(strong("• Are highly selective schools also schools with high test scores?")),
-  p(strong("• Do you need to be wealthy to become an astronaut?")),
-  p(strong("• What is the ratio of female astronauts to male? Is this trend changing over time?"))
+  p(strong("The question we will be looking at:")),
+  p(em("• Did astronauts go to highly selective schools in the US, or not highly selective?")),
+  p(em("• Are highly selective schools also schools with high test scores?")),
+  p(em("• Do you need to be wealthy to become an astronaut?")),
+  p(em("• What is the ratio of female astronauts to male? Is this trend changing over time?")),
+  p(strong("What is the data?")),
+  p(em("Our data looks at United State's college information, such as admissions and admissions scores.")),
+  p(em("The astronauts data gives information on astronauts that have traveled into space under the United States.")),
+  p(strong("Where did we find the Data?")),
+  p(em(a("Astronaut Data", href = 'https://www.kaggle.com/nasa/astronaut-yearbook'))),
+  p(em(a("College Data", href = 'https://www.kaggle.com/samsonqian/college-admissions')))
+  
   )
 
 

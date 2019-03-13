@@ -140,6 +140,7 @@ my_server <- function(input,output) {
   })
   
   output$piePlot <- renderPlot({getPieChart(input$percent_selective, input$school_type)})
+  
 
 }
 
