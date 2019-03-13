@@ -52,11 +52,9 @@ astro$Alma.Mater <- gsub("University of New Mexico", "University of New Mexico-M
 astro$Alma.Mater <- gsub("University of Oklahoma", "University of Oklahoma-Norman Campus", astro$Alma.Mater)
 astro$Alma.Mater <- gsub("University of New Hampshire", "University of New Hampshire-Main Campus", astro$Alma.Mater)
 astro$Alma.Mater <- gsub("University of Missouri", "University of Missouri-Columbia", astro$Alma.Mater)
-
 astro$Alma.Mater <- gsub("Georgia Institute of Technology", "Georgia Institute of Technology-Main Campus", astro$Alma.Mater)
 astro$Alma.Mater <- gsub("Colorado State University", "Colorado State University-Fort Collins", astro$Alma.Mater)
 astro$Alma.Mater <- gsub("University of Illinois", "University of Illinois at Urbana-Champaign", astro$Alma.Mater)
-
 astro$Alma.Mater <- gsub("The University of Texas at Austin-Arlington", "The University of Texas at Austin", astro$Alma.Mater)
 astro$Alma.Mater <- gsub("The University of Texas at Austin-Austin", "The University of Texas at Austin", astro$Alma.Mater)
 astro$Alma.Mater <- gsub("The University of Texas at Austin-Dallas", "The University of Texas at Austin", astro$Alma.Mater)
@@ -64,9 +62,11 @@ astro$Alma.Mater <- gsub("The University of Texas at Austin-El Paso", "The Unive
 astro$Alma.Mater <- gsub("The University of Texas at Austin Medical Branch-Galveston", "The University of Texas at Austin", astro$Alma.Mater)
 astro$Alma.Mater <- gsub("Youngstown State University", "Ohio State University-Main Campus", astro$Alma.Mater)
 
+#A vector of all possible military academies in the astro data set
 military_academies <- c("US Military Academy", "US Naval Postgraduate School", "US Naval Academy", "Air Force Institute of Technology", 
                         "US Air Force Academy", "The Citadel", "US Coast Guard Academy", "US Merchant Marine Academy", "US Air Force Institute of Technology")
 
+# Creates a new data frame containing only military academie astronauts
 military_astro <- filter(astro, Alma.Mater %in% military_academies)
 
 astro <- filter(astro, !Name %in% military_astro$Name)
@@ -86,7 +86,9 @@ unique_attended_colleges <- filter(college, Name %in% astro_college_data$Alma.Ma
 # you use this:
 no_astronaut_colleges <- filter(college, !(Name %in% astro_college_data$Alma.Mater))
 
-#errors <- filter(astro_college_data, is.na(Applicants.total))
+# Creates a data frame of all astronauts who did not go to a school
 errors <- filter(astro_college_data, Alma.Mater == "")
+
+#Filters the joined set for na values
 astro_college_data <- filter(astro_college_data, !is.na(Applicants.total))
 

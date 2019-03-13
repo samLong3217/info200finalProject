@@ -153,6 +153,7 @@ my_server <- function(input,output) {
                   "It is some of these questions that we seek to answer in other sections of the application.")
   })
   
+  # Outputs a pie chart for the render
   output$piePlot <- renderPlot({getPieChart(input$percent_selective, input$school_type)})
   
 
