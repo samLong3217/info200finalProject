@@ -4,6 +4,17 @@ source("astro_schools_sam.R")
 source("test_scores_schools_mark.R")
 
 my_server <- function(input,output) {
+  
+  # Function used to render an image on the intro slide
+  output$spicyImage <- renderImage({
+    
+    filename <- normalizePath(file.path('./img',
+                                        "banjo.jpg"))
+    
+    list(src = filename,
+         alt = "A goofy picture ;)")
+  }, deleteFile = FALSE)
+  
   # Function that used to create the table that includes the data of astronaut who spent their 
   # living expense under selected price in the college.
   output$result <- renderTable({
@@ -84,6 +95,7 @@ my_server <- function(input,output) {
     
   })
   
+  # Function used to render a bar graph representing the number of women versus men hired in a given year range
   output$womenBar <- renderPlot({
     members <- get_sex_number_between(input$yearRange[1], input$yearRange[2])
     out <- ggplot(data = members) +
@@ -97,6 +109,8 @@ my_server <- function(input,output) {
     out
   })
   
+  # Function used to render a line plot representing the ratio of male to female astro hires trending over time
+  # between the given year range
   output$womenDotPlot <- renderPlot({
     tab <- get_pct_female_over_time() %>% 
       filter(numeric.50. > input$yearRange[1] & numeric.50. < input$yearRange[2])
@@ -110,8 +124,8 @@ my_server <- function(input,output) {
     out
   })
   
+  # Function used to render analysis in text form, allowing for injected numbers based on the current user parameters
   output$womenBlurb1 <- renderText({
-    pct <- get_pct_female_between(2009, 2019)
     
     out <- paste0("Here, we sought to scratch the surface of the question: What role does gender play ",
                   "in your opportunities? Namely, we tried to attack this difficult and controversial ",
@@ -123,6 +137,7 @@ my_server <- function(input,output) {
                   " spikes in astronaut recruitment in general)")
   })
   
+  # Function used to render analysis in text form, allowing for injected numbers based on the current user parameters
   output$womenBlurb2 <- renderText({
     pct <- get_pct_female_between(2009, 2019)
     

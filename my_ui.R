@@ -18,18 +18,21 @@ page_one <- tabPanel(
        is available, if many successful astronauts trend to come from particular schools, etc. In doing so, we 
        hope to expose certain biases that often go unnoticed in society, to help ensure a more equitable future 
        for us all."),
-  p(strong("The question we will be looking at:")),
-  p(em("• Did astronauts go to highly selective schools in the US, or not highly selective?")),
-  p(em("• Are highly selective schools also schools with high test scores?")),
-  p(em("• Do you need to be wealthy to become an astronaut?")),
-  p(em("• What is the ratio of female astronauts to male? Is this trend changing over time?")),
-  p(strong("What is the data?")),
-  p(em("Our data looks at United State's college information, such as admissions and admissions scores.")),
-  p(em("The astronauts data gives information on astronauts that have traveled into space under the United States.")),
-  p(strong("Where did we find the Data?")),
-  p(em(a("Astronaut Data", href = 'https://www.kaggle.com/nasa/astronaut-yearbook'))),
-  p(em(a("College Data", href = 'https://www.kaggle.com/samsonqian/college-admissions')))
-  
+  h2("The question we will be looking at:"),
+  tags$ul(
+    tags$li("Did astronauts go to highly selective schools in the US, or not highly selective?"),
+    tags$li("Are highly selective schools also schools with high test scores?"),
+    tags$li("Do you need to be wealthy to become an astronaut?"),
+    tags$li("What is the ratio of female astronauts to male? Is this trend changing over time?")
+  ),
+  h2("What is the data?"),
+  p("Our data looks at United State's college information, such as admissions and admissions scores."),
+  p("The astronauts data gives information on astronauts that have traveled into space under the United States."),
+  h2("Where did we find the Data?"),
+  p(a("Astronaut Data", href = 'https://www.kaggle.com/nasa/astronaut-yearbook')),
+  p(a("College Data", href = 'https://www.kaggle.com/samsonqian/college-admissions')),
+  br(),
+  imageOutput("spicyImage")
   )
 
 
@@ -70,7 +73,6 @@ page_four <- tabPanel( #Rory's Question goes here
              plotOutput(outputId = "graph"),
              tableOutput(outputId = "result"),
              textOutput(outputId = "info")
-             
              )
 
 )
@@ -78,7 +80,7 @@ page_six <- tabPanel(
   "Conclusion",
   titlePanel("Conclusion"),
   p("Through these analyses, the role of college with relation to astronauts has become more clear.
-    We've seen an upward trend in the hiring of female astronauts. While this trened increases, as
+    We've seen an upward trend in the hiring of female astronauts. While this trend increases, as
     we strive for more gender equality in the US, it is still not perfect. We have a ways to go."),
   p("Another Analysis we have shown is that as test scores decrease, admission rates increase. 
     This is understandable, as competitive schools would have to make more dificult decisions, choosing
@@ -89,13 +91,18 @@ page_six <- tabPanel(
   p("The final concept we learned was the breakdown of schooling for astronauts. Around 42.6% of
     astonauts went to competitive schools, the most out of all categories. This result may be explained
     in much of the same way as the prior question, with these competitive schools having better
-    (or considered) programs for the fields that astronauts would be interested in.")
+    (or considered) programs for the fields that astronauts would be interested in."),
+  p("Overall, it is clear that there are multiple barriers to entry into the most desirable of
+    careers. Astronauts typically go to competetive schools that, while being highly selective 
+    grades-wise, may also tend to filter candidates for socioeconomic status. Our data shows that
+    good schools with high-testing students, are selective schools, are expensive schools. Economic status
+    presents a huge barrier in the equity of fulfilling our dreams.")
   
 )
 
 
 my_ui <- navbarPage(
-  "Astro Data",
+  "Educational Opportunities And Achieving Your Dreams, by Cameron Baird, Mark Mirador, Sam Long, Ruiheng Zhang",
   page_one,
   page_two,
   page_three,
