@@ -97,5 +97,3 @@ avg_test_scores_by_interval_graph <- function(divisions, tests) {
     )
   plot
 }
-
-View(avg_test_scores_by_interval(100))
