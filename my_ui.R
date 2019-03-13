@@ -8,9 +8,23 @@ source("cam_data.R")
 
 page_one <- tabPanel(
   "Introduction",
-  titlePanel("Income Inequality"),
-  p("bla")
+  titlePanel("Introduction"),
+  p("  They tell you when you're young that you can be anything you want when you grow up. 
+       But is that really true?! Do things like your race, gender, economic status determine your ability
+       to fulfill your youthful dreams? Are these trends changing? Our presentation seeks to examine the role 
+       education plays in your ability to achieve even the most lofty of ambitions. 
+       Specifically, we will be homing in on Astronauts to see what types of universities they attended. 
+       This will allow us to target details such as whether the school is private or not, how much financial aid 
+       is available, if many successful astronauts trend to come from particular schools, etc. In doing so, we 
+       hope to expose certain biases that often go unnoticed in society, to help ensure a more equitable future 
+       for us all."),
+  p("The question we will be looking at:"),
+  p(strong("• Did astronauts go to highly selective schools in the US, or not highly selective?")),
+  p(strong("• Are highly selective schools also schools with high test scores?")),
+  p(strong("• Do you need to be wealthy to become an astronaut?")),
+  p(strong("• What is the ratio of female astronauts to male? Is this trend changing over time?"))
   )
+
 
 
 
