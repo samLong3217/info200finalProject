@@ -12,13 +12,13 @@ page_two <- tabPanel( #Cameron's Question goes here
     mainPanel(
       plotOutput(outputId = "womenBar"),
       br(),
-      plotOutput(outputId = "womenDotPlot"),
-      br(),
-      textOutput(outputId = "womenBlurb1"),
-      br(),
-      textOutput(outputId = "womenBlurb2")
+      plotOutput(outputId = "womenDotPlot")
       
     )
-  )
-  
+    
+  ),
+  br(),
+  textOutput(outputId = "womenBlurb1"),
+  br(),
+  textOutput(outputId = "womenBlurb2")
 )
