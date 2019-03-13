@@ -3,7 +3,6 @@ library("ggplot2")
 source("test_scores_schools_mark.R")
 
 my_server <- function(input, output) {
-  plot_copy <- NULL # won't be null after renderPlot
   
   output$line_graph <- renderPlot({
     tests <- c()
@@ -27,22 +26,22 @@ my_server <- function(input, output) {
         "SAT.Critical.Reading.75th.percentile.score"
       ))
     }
-    plot_copy <- plot
     plot
   })
   
   output$test_scores_text <- renderText({
     text <- ""
+    scores_df <- avg_test_scores_by_interval(input$divisions)
     if (input$act) {
-      avg <- round(mean(plot_copy$ACT.Composite.75th.percentile.score, na.rm = FALSE), digits = 0)
+      avg <- round(mean(scores_df$ACT.Composite.75th.percentile.score, na.rm = TRUE), digits = 1)
       text <- paste0(text, "Average ACT Composite: ", avg, ". ")
     }
     if (input$sat_math) {
-      avg <- round(mean(plot_copy$SAT.Math.75th.percentile.score, na.rm = FALSE), digits = 0)
+      avg <- round(mean(scores_df$SAT.Math.75th.percentile.score, na.rm = TRUE), digits = 1)
       text <- paste0(text, "Average SAT Math: ", avg, ". ")
     }
     if (input$sat_read) {
-      avg <- round(mean(plot_copy$SAT.Critical.Reading.75th.percentile.score, na.rm = FALSE), digits = 0)
+      avg <- round(mean(scores_df$SAT.Critical.Reading.75th.percentile.score, na.rm = TRUE), digits = 1)
       text <- paste0(text, "Average SAT Critical Reading: ", avg, ". ")
     }
     text <- paste0(text, "Across all three tests, the line graph consistently shows a downward trend where ")
